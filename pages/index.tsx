@@ -1,9 +1,12 @@
+import '../styles/globals.css'
+
 import Head from "next/head";
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from 'next/link';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,8 +41,11 @@ export default function Home() {
               <button onClick={() => signOut()}>Sign out</button>
             </div>
           ) : (
-            <button onClick={() => signIn("google")}>Sign in with Google</button>
+            <Link href="/login">Login</Link>
           )}
+          <h1 className="text-3xl font-bold underline">
+            Hello world!
+          </h1>
           <Image
             className={styles.logo}
             src="/next.svg"
